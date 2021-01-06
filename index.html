@@ -2,8 +2,110 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body></body>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Weather</title>
+    <link rel="stylesheet" href="src/style.css" />
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <body>
+    <div class="container">
+      <h1 id= "city-outcome">Warsaw</h1>
+      <h2 id= "description">Partly cloudy</h2>
+      <h3>Tuesday 16:00</h3>
+      <img src="src/images/partlycloudy.png" />
+      
+      <form id ="Search-form">
+      <div>
+        <div class="input-group">
+          <input
+            id="search-text-input"
+            class="form-control"
+            type="text"
+            placeholder="Search for a city"
+          />
+          
+          <button type="submit" class="btn btn-outline-dark" value="search">Search</button>
+          <button type="submit" class="btn btn-outline-dark" value="search" id="current-button">Current</button>
+
+        </div>
+      </div>
+      </form>
+      
+      <div class= "element">
+        <h4><span id ="current-temperature">18</span>°</h4>
+      <div class="btn-group-vertical">
+        <div class="buttonC" id="celsius" click="convertToCelsius()" >
+          C
+          </div>      
+          <div class="buttonF" id="fahrenheit" click="convertToFahrenheit()">
+            F
+            </div>      
+        </div>
+      </div>
+
+      <ul>
+        <li> Precipitation:<span id="precip"> 0 </span> % </li>
+        <li> Humidity:<span id="humidity"> 77 </span> % </li> 
+        <li> Wind: <span id="wind"> 8 </span> km/h </li>
+      </ul>
+      <div class="card-deck">
+        <div class="card">
+          <img src="src/images/partlycloudyrain.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">mon</h5>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">19°</small>
+          </div>
+        </div>
+      
+        <div class="card">
+          <img src="src/images/cloudy.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">tue</h5>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">20°</small>
+          </div>
+        </div>
+    
+        <div class="card">
+          <img src="src/images/sun2.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">wed</h5>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">21°</small>
+          </div>
+        </div>
+      
+        <div class="card">
+          <img src="src/images/sun2.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">thur</h5>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">22°</small>
+          </div>
+        </div>
+      
+        <div class="card">
+          <img src="src/images/cloudy.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">fri</h5>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">23°</small>
+          </div>
+        </div>
+      </div>
+    </br>
+    
+      <h6> This app was codded by Maria Misia Kozielska </h6>
+    
+    </div>
+
+      <script src="src/app.js"></script>
+
+  </body>
 </html>
