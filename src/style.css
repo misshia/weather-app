@@ -1,13 +1,35 @@
 body {
   height: 100%;
-  background-color: #ffffff;
-  background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+  background-image: repeating-radial-gradient(
+      circle at center center,
+      transparent 0px,
+      transparent 13px,
+      rgba(0, 0, 0, 0.03) 13px,
+      rgba(0, 0, 0, 0.03) 24px,
+      transparent 24px,
+      transparent 62px,
+      rgba(0, 0, 0, 0.03) 62px,
+      rgba(0, 0, 0, 0.03) 96px
+    ),
+    repeating-radial-gradient(
+      circle at center center,
+      rgb(255, 255, 255) 0px,
+      rgb(255, 255, 255) 14px,
+      rgb(255, 255, 255) 14px,
+      rgb(255, 255, 255) 18px,
+      rgb(255, 255, 255) 18px,
+      rgb(255, 255, 255) 28px,
+      rgb(255, 255, 255) 28px,
+      rgb(255, 255, 255) 32px
+    );
+  background-size: 21px 21px;
 }
 
 .container {
   margin: o auto;
-  border: thick dotted gray;
+  border: thick dotted black;
   border-radius: 100px;
+  max-width: 700px;
 }
 h1 {
   font-weight: 900;
@@ -26,7 +48,12 @@ img {
   display: block;
   margin: 0 auto;
 }
-.form-control,
+
+.input-group {
+  width: 70%;
+  margin-left: 100px;
+}
+
 .btn {
   text-align: center;
   display: flex;
@@ -37,6 +64,11 @@ h4 {
   font-family: monospace;
   font-size: 100px;
 }
+.element {
+  display: flex;
+  justify-content: center;
+}
+
 .buttonC,
 .buttonF {
   height: 40px;
@@ -44,10 +76,6 @@ h4 {
   cursor: pointer;
   font-size: 35px;
   font-family: monospace;
-}
-.element {
-  display: flex;
-  justify-content: center;
 }
 
 .btn-group-vertical,
