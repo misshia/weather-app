@@ -52,6 +52,7 @@ function currentLocationShowTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let cityElement = document.querySelector("#city-outcome");
   let temperatureElement = document.querySelector("#current-temperature");
+    let iconElement = document.querySelector("#icon");
   cityElement.innerHTML = `${city}`;
   temperatureElement.innerHTML = `${temperature}`;
 
@@ -61,6 +62,35 @@ function currentLocationShowTemperature(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+
+     iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+}
+
+function dispalyForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 5; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+<div class="card-deck">
+        <div class="card">
+          <img src="src/images/01d" class="card-img-top" id="icon" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">${day}</h5>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">{${Math.round(forecast.main.temp)}°</small>
+          </div>
+        </div>
+
+  `;
+  }
 }
 
 function searchLocation(position) {
