@@ -38,10 +38,32 @@ function search(event) {
   searchCity(searchInput.value);
 }
 
+function dispalyForecast(response) {
+  
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 5; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+    <div class="card">
+          <img src="src/images/${response.data.weather[0].icon}.png" class="card-img-top" id="icon" alt="...">
+          <div class="card-body">
+           <h5 class="card-title">${day}</h5>
+            <div class="weather-forecast-temperature">${Math.round(forecast.main.temp)}</div>
+          </div>
+  `;
+  }
+}
+
 function searchCity(city) {
   let apiKey = "78251f458f96a759bc4e7e717b3145fb";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(currentLocationShowTemperature);
+
+   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(dispalyForecast);
 }
 
 let form = document.querySelector("#Search-form");
@@ -65,33 +87,11 @@ function currentLocationShowTemperature(response) {
 
      iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `src/images/${response.data.weather[0].icon}.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-function dispalyForecast(response) {
-  let forecastElement = document.querySelector("#forecast");
-  forecastElement.innerHTML = null;
-  let forecast = null;
-
-  for (let index = 0; index < 5; index++) {
-    forecast = response.data.list[index];
-    forecastElement.innerHTML += `
-<div class="card-deck">
-        <div class="card">
-          <img src="src/images/01d" class="card-img-top" id="icon" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">${day}</h5>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">{${Math.round(forecast.main.temp)}°</small>
-          </div>
-        </div>
-
-  `;
-  }
-}
 
 function searchLocation(position) {
   let apiKey = "78251f458f96a759bc4e7e717b3145fb";

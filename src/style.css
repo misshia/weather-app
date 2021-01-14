@@ -108,10 +108,8 @@ ul {
   width: 100px;
   background: none;
 }
-.card-footer {
-  background: none;
-  border: none;
-  font-size: 50px;
+.weather-forecast-temperature {
+  font-size: 40px;
 }
 
 .link-dark {
