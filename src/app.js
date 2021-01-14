@@ -51,7 +51,7 @@ function dispalyForecast(response) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
     <div class="card">
-          <img src="src/images/${response.data.weather[0].icon}.png" class="card-img-top" id="icon" alt="...">
+          <img src="src/images/${forecast.weather[0].icon}.png" class="card-img-top" id="icon" alt="...">
           <div class="card-body">
            <h5 class="card-title">${day}</h5>
             <div class="weather-forecast-temperature">${Math.round(forecast.main.temp)}</div>
@@ -81,7 +81,7 @@ function currentLocationShowTemperature(response) {
     let iconElement = document.querySelector("#icon");
   cityElement.innerHTML = `${city}`;
   temperatureElement.innerHTML = `${temperature}`;
-  descriptionElement.innerHTML = response.data.weather[0].description;
+ descriptionElement.innerHTML = response.data.weather[0].description;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#description").innerHTML =response.data.weather[0].main;
