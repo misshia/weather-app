@@ -23,7 +23,19 @@ let days = [
   `Saturday`,
   `Sunday`
 ];
+
+let daysshort = [
+  `sun`,
+  `mon`,
+  `tue`,
+  `wed`,
+  `thu`,
+  `fri`,
+  `sat`
+];
+
 let day = days[now.getDay()];
+let dshort =daysshort[now.getDay()];
 
 h3.innerHTML = `${day} ${hours}:${minutes}`;
 
@@ -53,8 +65,8 @@ function dispalyForecast(response) {
     <div class="card">
           <img src="src/images/${forecast.weather[0].icon}.png" class="card-img-top" id="icon" alt="...">
           <div class="card-body">
-           <h5 class="card-title">${day}</h5>
-            <div class="weather-forecast-temperature">${Math.round(forecast.main.temp)}</div>
+           <h5 class="card-title">${dshort}</h5>
+            <div class="weather-forecast-temperature">${Math.round(forecast.main.temp)}°</div>
           </div>
   `;
   }
