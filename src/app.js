@@ -1,3 +1,4 @@
+
 //date & time
 
 let now = new Date();
@@ -38,6 +39,8 @@ function search(event) {
   searchCity(searchInput.value);
 }
 
+//forecast
+
 function dispalyForecast(response) {
   
   let forecastElement = document.querySelector("#forecast");
@@ -74,22 +77,20 @@ function currentLocationShowTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let cityElement = document.querySelector("#city-outcome");
   let temperatureElement = document.querySelector("#current-temperature");
+  let descriptionElement = document.querySelector("#description");
     let iconElement = document.querySelector("#icon");
   cityElement.innerHTML = `${city}`;
   temperatureElement.innerHTML = `${temperature}`;
-
+  descriptionElement.innerHTML = response.data.weather[0].description;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed
-  );
-  document.querySelector("#description").innerHTML =
-    response.data.weather[0].main;
+  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
+  document.querySelector("#description").innerHTML =response.data.weather[0].main;
 
      iconElement.setAttribute(
-    "src",
-    `src/images/${response.data.weather[0].icon}.png`
-  );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
+       "src",
+       `src/images/${response.data.weather[0].icon}.png`
+       );
+       iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 
