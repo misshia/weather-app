@@ -1,18 +1,7 @@
+//date & time - forecast
+function formatDate(timestamp) {
+let date = new Date(timestamp);
 
-//date & time
-
-let now = new Date();
-
-let h3 = document.querySelector(`h3`);
-
-let hours = now.getHours();
-if (hours < 10) {
-  hours = `0${hours}`;
-}
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
 let days = [
   `Sunday`,
   `Monday`,
@@ -23,21 +12,22 @@ let days = [
   `Saturday`,
   `Sunday`
 ];
+let day = days[date.getDay()];
+  return `${day} ${formatHours(timestamp)}`;
+}
 
-let daysshort = [
-  `sun`,
-  `mon`,
-  `tue`,
-  `wed`,
-  `thu`,
-  `fri`,
-  `sat`
-];
-
-let day = days[now.getDay()];
-let dshort =daysshort[now.getDay()];
-
-h3.innerHTML = `${day} ${hours}:${minutes}`;
+function formatHours(timestamp) {
+let date = new Date(timestamp);
+let hours = date.getHours();
+if (hours < 10) {
+  hours = `0${hours}`;
+}
+let minutes = date.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
+return `${hours}:${minutes}`;
+}
 
 //temperature & location
 
@@ -80,7 +70,7 @@ function dispalyForecast(response) {
     <div class="card">
           <img src="images/${forecast.weather[0].icon}.png" class="card-img-top" id="icon" alt="...">
           <div class="card-body">
-           <h5 class="card-title">${dshort}</h5>
+           <h5 class="card-title">${formatHours(forecast.dt * 1000)}</h5>
             <div class="weather-forecast-temperature">${Math.round(forecast.main.temp)}°</div>
           </div>
   `;
@@ -105,19 +95,22 @@ function currentLocationShowTemperature(response) {
   let cityElement = document.querySelector("#city-outcome");
   let temperatureElement = document.querySelector("#current-temperature");
   let descriptionElement = document.querySelector("#description");
-    let iconElement = document.querySelector("#icon");
+  let dateElement = document.querySelector("#date");
+
+  let iconElement = document.querySelector("#icon");
   cityElement.innerHTML = `${city}`;
   temperatureElement.innerHTML = `${temperature}`;
- descriptionElement.innerHTML = response.data.weather[0].description;
+  descriptionElement.innerHTML = response.data.weather[0].description;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#description").innerHTML =response.data.weather[0].main;
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 
-     iconElement.setAttribute(
-       "src",
-       `images/${response.data.weather[0].icon}.png`
-       );
-       iconElement.setAttribute("alt", response.data.weather[0].description);
+  iconElement.setAttribute(
+  "src",
+  `images/${response.data.weather[0].icon}.png`
+   );
+   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 
