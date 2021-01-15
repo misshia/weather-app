@@ -78,7 +78,7 @@ function dispalyForecast(response) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
     <div class="card">
-          <img src="src/images/${forecast.weather[0].icon}.png" class="card-img-top" id="icon" alt="...">
+          <img src="images/${forecast.weather[0].icon}.png" class="card-img-top" id="icon" alt="...">
           <div class="card-body">
            <h5 class="card-title">${dshort}</h5>
             <div class="weather-forecast-temperature">${Math.round(forecast.main.temp)}°</div>
@@ -115,7 +115,7 @@ function currentLocationShowTemperature(response) {
 
      iconElement.setAttribute(
        "src",
-       `src/images/${response.data.weather[0].icon}.png`
+       `images/${response.data.weather[0].icon}.png`
        );
        iconElement.setAttribute("alt", response.data.weather[0].description);
 }
