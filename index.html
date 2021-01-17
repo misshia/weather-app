@@ -15,13 +15,35 @@
   </head>
         <body>
     <div class="container">
-            <div class="weather-app-wrapper">
-        <div class="weather-app">
+            
       <h1 id= "city-outcome"> Warsaw </h1>
       <h2>Last updated: <span id="date"></span></h2>
       <h3 id= "description">Partly cloudy</h3>
+
+  
+<diV class="temp">
+      <div class= "element">
+        <h4><span id ="current-temperature">18</span>°</h4>
+      <div class="btn-group-vertical">
+        <div class="buttonC" id="celsius" click="convertToCelsius()" >
+          C
+          </div>      
+          <div class="buttonF" id="fahrenheit" click="convertToFahrenheit()">
+            F
+            </div>
+          </div>
+      </div>
+    </diV>
+
       <img src="images/13n.png" id="icon"/>
-      
+
+    <ul>
+        <li> Precipitation:<span id="precip"> 0 </span> % </li>
+        <li> Humidity:<span id="humidity"> 77 </span> % </li> 
+        <li> Wind: <span id="wind"> 8 </span> km/h </li>
+      </ul>  
+
+
       <form id ="Search-form">
       <div>
         <div class="input-group">
@@ -38,25 +60,6 @@
         </div>
       </div>
       </form>
-      
-
-      <div class= "element">
-        <h4><span id ="current-temperature">18</span>°</h4>
-      <div class="btn-group-vertical">
-        <div class="buttonC" id="celsius" click="convertToCelsius()" >
-          C
-          </div>      
-          <div class="buttonF" id="fahrenheit" click="convertToFahrenheit()">
-            F
-            </div>      
-        </div>
-      </div>
-
-      <ul>
-        <li> Precipitation:<span id="precip"> 0 </span> % </li>
-        <li> Humidity:<span id="humidity"> 77 </span> % </li> 
-        <li> Wind: <span id="wind"> 8 </span> km/h </li>
-      </ul>
 
       <div class="card-deck" id="forecast"> 
       </div>

@@ -94,14 +94,21 @@ h2 {
 }
 
 img {
-  width: 300px;
+  width: 400px;
   display: block;
-  margin: 0 auto;
+  margin-left: 70px;
+  margin-top: -110px;
 }
 
 .input-group {
-  width: 70%;
-  margin-left: 100px;
+  width: 98%;
+  margin-left: 10px;
+  margin-bottom: 50px;
+}
+
+input[type="text"],
+textarea {
+  background-color: rgba(255, 192, 203, 0.2);
 }
 
 .btn {
@@ -109,9 +116,25 @@ img {
   display: flex;
   justify-content: center;
 }
-h4 {
-  font-size: 100px;
+
+.btn:hover {
+  background-color: #6a6a82;
 }
+
+h4 {
+  font-size: 75px;
+}
+
+.temp {
+  border: 2px dotted #6a6a82;
+  border-radius: 100px;
+  height: 200px;
+  width: 200px;
+  padding-top: 45px;
+  margin-top: -70px;
+  margin-left: 450px;
+}
+
 .element {
   display: flex;
   justify-content: center;
@@ -122,23 +145,29 @@ h4 {
   height: 40px;
   width: 40px;
   cursor: pointer;
-  font-size: 35px;
+  font-size: 30px;
 }
 
 .btn-group-vertical,
 h4 {
-  flex-basis: 100px;
-  height: 100px;
-  margin: 5px;
+  flex-basis: 50px;
+  height: 80px;
+  margin: 0px;
 }
 
-h6 {
-  text-align: center;
-}
 ul {
+  border: 2px dotted #6a6a82;
+  border-radius: 100px;
+  height: 200px;
+  width: 200px;
   text-align: center;
-  font-size: 30px;
+  font-size: 18px;
   list-style: none;
+  padding-top: 55px;
+  padding-left: 3px;
+  margin-left: 400px;
+  margin-top: -120px;
+  margin-bottom: 20px;
 }
 .card {
   text-align: center;
@@ -153,9 +182,14 @@ ul {
 .card-img-top {
   width: 100px;
   background: none;
+  display: block;
+  margin: 0 auto !important;
 }
 .weather-forecast-temperature {
-  font-size: 40px;
+  font-size: 32px;
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
 }
 
 .link-dark {
